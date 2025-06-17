@@ -1,1 +1,1 @@
-# aws-rekognition-cicd-pipeline
+# aws-multi-language-cicd-pipeline
