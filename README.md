@@ -36,4 +36,19 @@ When code is merged to `main`:
 
 ## 📂 Output S3 Structure
 
+s3://your-bucket/beta/
+├── audio_inputs/
+├── transcripts/
+├── translations/
+└── audio_outputs/
+
+s3://your-bucket/prod/
+├── audio_inputs/
+├── transcripts/
+├── translations/
+└── audio_outputs/
+
+## 🧪 Verifying Results
+- Go to your S3 bucket via AWS Console
+- Check `beta/` or `prod/` folders for output files
 
