@@ -43,7 +43,23 @@ def translate_text(text, target_lang):
     return result['TranslatedText']
 
 def synthesize_speech(text, lang_code, output_path):
-    response = polly.synthesize_speech(Text=text, OutputFormat='mp3', VoiceId='Lupe' if lang_code == 'es' else 'Joanna')
+ # Map language codes to Polly voice IDs
+    voice_map = {
+        'es': 'Lupe',
+        'en': 'Joanna',
+        'zh': 'Zhiyu',        
+        'hi': 'Kajal',
+        
+    }
+
+    voice_id = voice_map.get(lang_code, 'Joanna')  # Default to 'Joanna' if not found
+
+    response = polly.synthesize_speech(
+        Text=text,
+        OutputFormat='mp3',
+        VoiceId=voice_id
+    )
+
     with open(output_path, 'wb') as f:
         f.write(response['AudioStream'].read())
 
